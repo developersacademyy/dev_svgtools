@@ -55,3 +55,23 @@ drawVector('id', x, y, color, rotX, rotY, rotZ, postGUI)
 | `rotY`    | Vector rotation in Y.         |
 | `rotZ`    | Vector rotation in Z.         |
 | `postGUI` | Define if the vector is drawn over the graphical interface (true) or behind it (false). |
+
+# Utilization
+
+**Example**
+```lua
+svgtools.cache = {
+      health = { false, 100, getTickCount() }
+}
+
+function start()
+      svgtools.createPolygon('health', 50, 50)
+end
+addEventHandler('onClientResourceStart', resourceRoot, start)
+
+function interface()
+      svgtools.drawVector('health', 910, 500, tocolor(0, 0, 0), 0, 0, 0, false)
+      svgtools.update('health', getElementHealth(localPlayer))
+end
+addEventHandler('onClientRender', root, interface)
+```
