@@ -1,4 +1,3 @@
-svgtools = {}
 svgtools.vectors = {}
 svgtools.cache = {}
 svgtools.types = {
@@ -61,19 +60,19 @@ svgtools.createCircle = function(id, w, h, stroke)
     return svgtools.vectors[id]
 end
 
-svgtools.updateVector = function(id, valor)
+svgtools.updateVector = function(id, value)
     local v = svgtools.vectors[id]
     if not v then return end
     
-    if not svgtools.cache[id] then svgtools.cache[id] = {false, valor, getTickCount()} end
+    if not svgtools.cache[id] then svgtools.cache[id] = {false, value, getTickCount()} end
     
-    if svgtools.cache[id][2] ~= valor then
+    if svgtools.cache[id][2] ~= value then
         if not svgtools.cache[id][1] then
             svgtools.cache[id][1], svgtools.cache[id][3] = true, getTickCount()
         end
         
         local prog = (getTickCount() - svgtools.cache[id][3]) / 8000
-        svgtools.cache[id][2] = interpolateBetween(svgtools.cache[id][2], 0, 0, valor, 0, 0, prog, 'OutQuad')
+        svgtools.cache[id][2] = interpolateBetween(svgtools.cache[id][2], 0, 0, value, 0, 0, prog, 'OutQuad')
         
         if prog > 1 then svgtools.cache[id][1], svgtools.cache[id][3] = false, nil end
         
@@ -87,12 +86,12 @@ svgtools.updateVector = function(id, valor)
     end
 end
 
-svgtools.drawVector = function(id, x, y, cor, rx, ry, rz, post)
-    local v = svgtools.vectors[id]
-    if not (v and x and y) then return end
+svgtools.drawVector = function(id, x, y, color, rotX, rotY, rotZ, postGUI)
+    local data = svgtools.vectors[id]
+    if not (data and x and y) then return end
     
     dxSetBlendMode('add')
-    dxDrawImage(x, y, v.w, v.h, v.svg.svg, rx or 0, ry or 0, rz or 0, cor or 0xFFFFFFFF, post or false)
+    dxDrawImage(x, y, data.w, data.h, v.svg.svg, rotX or 0, rotY or 0, rotZ or 0, color or 0xFFFFFFFF, postGUI or false)
     dxSetBlendMode('modulate_add')
 end
 
