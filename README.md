@@ -8,21 +8,32 @@
 
 # Explication
 
-**Stroke Polygons**
 ```lua
-createHexagonStroke('id', width, height, stroke)
+createPolygon('id', 'type', w, h, stroke)
 ```
 
 | Parameter | Description                   |
 | :-------- | :---------------------------- |
 | `id`      | What is the polygon called.   |
-| `width`   | Size of width.                |
-| `height`  | Size of height.               |
+| `type`    | Type of element.              |
+| `w`       | Size of width.                |
+| `h`       | Size of height.               |
 | `stroke`  | Size of stroke.               |
 
-**Offset Polygons**
 ```lua
-hexagonOffset('id', value)
+createCircle('id', w, h, stroke)
+```
+
+| Parameter | Description                   |
+| :-------- | :---------------------------- |
+| `id`      | What is the polygon called.   |
+| `type`    | Type of element.              |
+| `w`       | Size of width.                |
+| `h`       | Size of height.               |
+| `stroke`  | Size of stroke.               |
+
+```lua
+updateVector('id', value)
 ```
 
 | Parameter | Description                   |
@@ -30,9 +41,8 @@ hexagonOffset('id', value)
 | `id`      | What is the polygon called.   |
 | `value`   | Value to Offset in svg.       |
 
-**Draw Polygons**
 ```lua
-drawHexagon('id', x, y, color, rotX, rotY, rotZ, postGUI)
+drawVector('id', x, y, color, rotX, rotY, rotZ, postGUI)
 ```
 
 | Parameter | Description                   |
