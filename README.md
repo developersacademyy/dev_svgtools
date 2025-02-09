@@ -26,7 +26,7 @@ createCircle('id', w, h, stroke)
 
 | Parameter | Description                   |
 | :-------- | :---------------------------- |
-| `id`      | What is the polygon called.   |
+| `id`      | What is the circle called.    |
 | `type`    | Type of element.              |
 | `w`       | Size of width.                |
 | `h`       | Size of height.               |
@@ -50,8 +50,8 @@ drawVector('id', x, y, color, rotX, rotY, rotZ, postGUI)
 | `id`      | What is the polygon called.   |
 | `x`       | Size of x.                    |
 | `y`       | Size of y.                    |
-| `tocolor` | Color of polygon.             |
-| `rotX`    | Polygon rotation in X.        |
-| `rotY`    | Polygon rotation in Y.        |
-| `rotZ`    | Polygon rotation in Z.        |
-| `postGUI` | Define if the polygon is drawn over the graphical interface (true) or behind it (false). |
+| `color`   | Color of vector.              |
+| `rotX`    | Vector rotation in X.         |
+| `rotY`    | Vector rotation in Y.         |
+| `rotZ`    | Vector rotation in Z.         |
+| `postGUI` | Define if the vector is drawn over the graphical interface (true) or behind it (false). |
