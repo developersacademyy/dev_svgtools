@@ -5,6 +5,6 @@
     <oop>false</oop>
 
     <!-- UTILS -->
-    <script src = 'modules/utils/svgtools.lua' type = 'client' cache = 'false' />
+    <script src = 'modules/utils.lua' type = 'client' cache = 'false' />
 
 </meta>
