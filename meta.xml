@@ -1,0 +1,10 @@
+<meta>
+    
+    <info author = 'Developers Academy' name = 'dev_svgtools' description = 'System of svg tools' type = 'script' version = '1.0' />
+    <min_mta_version client = '1.6.0' server = '1.6.0' />
+    <oop>false</oop>
+
+    <!-- UTILS -->
+    <script src = 'modules/utils/svgtools.lua' type = 'client' cache = 'false' />
+
+</meta>
