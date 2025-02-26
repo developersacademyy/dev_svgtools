@@ -54,7 +54,7 @@ updatePolygon = function(id, value)
         end
         
         local prog = (getTickCount() - cache[id][3]) / 8000
-        local targetValue = math.min(value, 100)
+        local targetValue = math.min(value, 100) 
         cache[id][2] = interpolateBetween(cache[id][2], 0, 0, targetValue, 0, 0, prog, 'OutQuad')
         
         if prog > 1 then cache[id][1], cache[id][3] = false, nil end
@@ -62,7 +62,7 @@ updatePolygon = function(id, value)
         local elm = xmlFindChild(v.svg.xml, 'polygon', 0)
         if elm then
             local adjustedValue = cache[id][2]
-            adjustedValue = adjustedValue * (v.type == 'triangle' and 0.8 or v.type == 'diamond' and 0.85 or v.type == 'pentagon' and 0.9 or v.type == 'hexagon' and 0.95 or 1)
+            adjustedValue = adjustedValue * (v.type == 'triangle' and 0.81 or v.type == 'diamond' and 0.88 or v.type == 'pentagon' and 0.92 or v.type == 'hexagon' and 0.94)
             xmlNodeSetAttribute(elm, 'stroke-dashoffset', v.perimetro - (v.perimetro/100 * adjustedValue))
             svgSetDocumentXML(v.svg.svg, v.svg.xml)
         end
@@ -76,4 +76,4 @@ drawPolygon = function(id, x, y, color, rotX, rotY, rotZ, postGUI)
     if not (data and x and y) then return end
     
     dxDrawImage(x, y, data.w, data.h, data.svg.svg, rotX or 0, rotY or 0, rotZ or 0, color or 0xFFFFFFFF, postGUI or false)
-end
+end 
