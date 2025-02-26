@@ -46,17 +46,22 @@ drawPolygon(id, x, y, color, rotX, rotY, rotZ, postGUI)
 
 ### Exemplo de Uso
 ```lua
+cache = {
+    health = { false, 100, getTickCount() }
+}
+
 resourceStart = function()
-      createPolygon("health", "hexagon", 100, 100, 4)
+      createPolygon('health', 'hexagon', 100, 100, 4)
 end
 addEventHandler('onClientResourceStart', resourceRoot, resourceStart)
 
 resourceRender = function()
-      drawPolygon("health", 400, 400, tocolor(255, 0, 0, 255))
+      drawPolygon('health', 400, 400, tocolor(255, 0, 0, 255))
+      updatePolygon('health', get)
 end
 addEventHandler('onClientRender', root, resourceRender)
 ```
-
+      
 > Esse exemplo cria um hexágono, atualiza seu vetor e o renderiza na tela.
 
 💡 **Observação:** Essa biblioteca facilita a renderização de polígonos no MTA, permitindo um controle eficiente sobre os elementos gráficos por meio do SVG.
