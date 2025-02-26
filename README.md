@@ -57,7 +57,7 @@ addEventHandler('onClientResourceStart', resourceRoot, resourceStart)
 
 resourceRender = function()
       drawPolygon('health', 400, 400, tocolor(255, 0, 0, 255))
-      updatePolygon('health', get)
+      updatePolygon('health', getElementHealth(localPlayer))
 end
 addEventHandler('onClientRender', root, resourceRender)
 ```
