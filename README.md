@@ -1,77 +1,62 @@
-# 📐 Geometric Shapes - svgtools
+# 📐 Biblioteca de Polígonos
 
-> Esta biblioteca utilitária serve para renderização de interfaces no Multi Theft Auto via SVG, permitindo a criação de formas geométricas, utilização versátil para huds, painéis e outros elementos visuais.
+> Esta biblioteca utilitária permite a renderização de interfaces no Multi Theft Auto (MTA) via SVG, proporcionando a criação de polígonos de forma otimizada e prática.
 
-# Installation
-- `1.` - Download MTA:SA on your machine: https://multitheftauto.com/
-- `2.` - Download this repository.
+# 📌 Como Funciona?
 
-# Explication
-
+### Criação de Polígono
 ```lua
-createPolygon('id', 'type', w, h, stroke)
+createPolygon(id, type, width, height, stroke)
 ```
+| Parâmetro  | Descrição                       |
+|------------|---------------------------------|
+| `id`       | Identificador do polígono.      |
+| `type`     | Tipo do elemento.               |
+| `width`    | Largura do polígono.            |
+| `height`   | Altura do polígono.             |
+| `stroke`   | Espessura da borda (stroke).    |
 
-| Parameter | Description                   |
-| :-------- | :---------------------------- |
-| `id`      | What is the polygon called.   |
-| `type`    | Type of element.              |
-| `w`       | Size of width.                |
-| `h`       | Size of height.               |
-| `stroke`  | Size of stroke.               |
-
+### Atualização de Polígono
 ```lua
-createCircle('id', w, h, stroke)
+updatePolygon(id, value)
 ```
+| Parâmetro  | Descrição                       |
+|------------|---------------------------------|
+| `id`       | Identificador do polígono.      |
+| `value`    | Valor a ser atualizado no SVG.  |
 
-| Parameter | Description                   |
-| :-------- | :---------------------------- |
-| `id`      | What is the circle called.    |
-| `type`    | Type of element.              |
-| `w`       | Size of width.                |
-| `h`       | Size of height.               |
-| `stroke`  | Size of stroke.               |
-
+### Desenhar um Polígono
 ```lua
-updateVector('id', value)
+drawPolygon(id, x, y, color, rotX, rotY, rotZ, postGUI)
 ```
+| Parâmetro  | Descrição                                                      |
+|------------|----------------------------------------------------------------|
+| `id`       | Identificador do polígono.                                     |
+| `x`        | Posição no eixo X.                                             |
+| `y`        | Posição no eixo Y.                                             |
+| `color`    | Cor do polígono (em formato RGBA ou HEX).                      |
+| `rotX`     | Rotação do polígono no eixo X.                                 |
+| `rotY`     | Rotação do polígono no eixo Y.                                 |
+| `rotZ`     | Rotação do polígono no eixo Z.                                 |
+| `postGUI`  | Define se o polígono será desenhado sobre (`true`) ou atrás (`false`) da interface gráfica. |
 
-| Parameter | Description                   |
-| :-------- | :---------------------------- |
-| `id`      | What is the polygon called.   |
-| `value`   | Value to Offset in svg.       |
+---
 
+## 🚀 Como Utilizar?
+
+### Exemplo de Uso
 ```lua
-drawVector('id', x, y, color, rotX, rotY, rotZ, postGUI)
-```
-
-| Parameter | Description                   |
-| :-------- | :---------------------------- |
-| `id`      | What is the polygon called.   |
-| `x`       | Size of x.                    |
-| `y`       | Size of y.                    |
-| `color`   | Color of vector.              |
-| `rotX`    | Vector rotation in X.         |
-| `rotY`    | Vector rotation in Y.         |
-| `rotZ`    | Vector rotation in Z.         |
-| `postGUI` | Define if the vector is drawn over the graphical interface (true) or behind it (false). |
-
-# Utilization
-
-**Example**
-```lua
-svgtools.cache = {
-      health = { false, 100, getTickCount() }
-}
-
-function start()
-      svgtools.createPolygon('health', 50, 50)
+resourceStart = function()
+      createPolygon("health", "hexagon", 100, 100, 4)
 end
-addEventHandler('onClientResourceStart', resourceRoot, start)
+addEventHandler('onClientResourceStart', resourceRoot, resourceStart)
 
-function interface()
-      svgtools.drawVector('health', 910, 500, tocolor(0, 0, 0), 0, 0, 0, false)
-      svgtools.update('health', getElementHealth(localPlayer))
+resourceRender = function()
+      drawPolygon("health", 400, 400, tocolor(255, 0, 0, 255))
 end
-addEventHandler('onClientRender', root, interface)
+addEventHandler('onClientRender', root, resourceRender)
 ```
+
+> Esse exemplo cria um hexágono, atualiza seu vetor e o renderiza na tela.
+
+💡 **Observação:** Essa biblioteca facilita a renderização de polígonos no MTA, permitindo um controle eficiente sobre os elementos gráficos por meio do SVG.
