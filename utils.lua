@@ -3,7 +3,7 @@ cache = {}
 types = {
     triangle = 3,
     diamond = 4,
-    pentagon = 5,
+    pentagon = 5, 
     hexagon = 6
 }
 
