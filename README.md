@@ -1,6 +1,6 @@
 # 📐 Biblioteca de Polígonos
 
-> Esta biblioteca utilitária permite a renderização de interfaces no Multi Theft Auto (MTA) via SVG, proporcionando a criação de polígonos de forma otimizada e prática.
+> Esta biblioteca utilitária permite a renderização de formas geométricas no Multi Theft Auto via SVG, proporcionando a criação de polígonos de forma otimizada e prática.
 
 # 📌 Como Funciona?
 
